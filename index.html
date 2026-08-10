@@ -150,6 +150,165 @@
       color: var(--text-muted);
     }
 
+    /* Tag pills */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.2rem;
+    }
+
+    .tag {
+      background-color: var(--bg);
+      color: var(--secondary);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    /* Interactive Grid Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery-card {
+      background: var(--bg);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+    }
+
+    .thumb-wrapper {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      background-color: #111;
+    }
+
+    .thumb-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Overlays & Badges */
+    .play-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      font-size: 1.4rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-left: 3px;
+    }
+
+    .media-badge {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: bold;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+    }
+
+    .card-meta {
+      padding: 1rem;
+    }
+
+    .card-meta h3 {
+      font-size: 1rem;
+      color: var(--secondary);
+      margin-bottom: 0.3rem;
+    }
+
+    .card-meta p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Modal / Lightbox Overlay */
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .lightbox-modal.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 900px;
+      width: 100%;
+      background: #000;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      color: #fff;
+      font-size: 2rem;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 1010;
+      line-height: 1;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    }
+
+    .lightbox-body {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      background: #000;
+    }
+
+    .lightbox-body iframe,
+    .lightbox-body img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      object-fit: contain;
+    }
+
     /* Community Highlight */
     .highlight-container {
       display: flex;
@@ -190,23 +349,6 @@
       margin-bottom: 0.5rem;
     }
 
-    /* Tag pills */
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 1.2rem;
-    }
-
-    .tag {
-      background-color: var(--bg);
-      color: var(--secondary);
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
     /* Certifications List Styling */
     .cert-list {
       list-style-type: none;
@@ -220,38 +362,6 @@
 
     .cert-list li:last-child {
       border-bottom: none;
-    }
-
-    /* Horizontal Scroll Gallery */
-    .scroll-gallery {
-      display: flex;
-      gap: 1.2rem;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      padding-bottom: 1.2rem;
-    }
-
-    .gallery-item {
-      scroll-snap-align: start;
-      flex: 0 0 280px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 280px;
-      object-fit: contain;
-      border-radius: 8px;
-      border: 1px solid #e2e8f0;
-      margin-bottom: 0.5rem;
-      background-color: #f1f5f9;
-    }
-
-    .gallery-caption {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      text-align: center;
     }
 
     /* Footer */
@@ -331,25 +441,138 @@
       </div>
     </section>
 
-    <!-- Photo Highlights -->
+    <!-- Interactive Media & Photo Gallery -->
     <section>
-      <h2>Photo Highlights</h2>
-      <p style="margin-bottom: 1.2rem; color: var(--text-muted); font-size: 0.95rem;">Scroll horizontally to view photos:</p>
-      <div class="scroll-gallery">
+      <h2>Media & Photo Gallery</h2>
+      <p style="margin-bottom: 1.2rem; color: var(--text-muted); font-size: 0.95rem;">Click any item below to view full-screen:</p>
+      
+      <div class="gallery-grid">
         
-        <div class="gallery-item">
-          <img src="presenting.jpg" alt="Tony Nava presentation wide shot">
-          <p class="gallery-caption">Presenting Keynote (Wide View)</p>
+        <!-- Playlist 1 -->
+        <div class="gallery-card" onclick="openLightbox('video', 'https://www.youtube.com/embed/videoseries?list=PLZoL-14Q0aIkQSbcPBDuAhgycUQpi3VqQ&autoplay=1')">
+          <div class="thumb-wrapper">
+            <img src="https://img.youtube.com/vi/NCqN9OGGvEU/hqdefault.jpg" alt="Internal Consultant Interviews">
+            <span class="play-icon">&#9654;</span>
+            <span class="media-badge">Playlist</span>
+          </div>
+          <div class="card-meta">
+            <h3>Internal Consultant Interviews</h3>
+            <p>Podcast-style discussions with internal consulting professionals.</p>
+          </div>
         </div>
 
-        <div class="gallery-item">
-          <img src="scouting.JPG" alt="Tony Nava in Scout Leader uniform">
-          <p class="gallery-caption">Youth Volunteering: Scout Leader</p>
+        <!-- Playlist 2 -->
+        <div class="gallery-card" onclick="openLightbox('video', 'https://www.youtube.com/embed/videoseries?list=PLZoL-14Q0aIkTbQTcINppZfNhWYD6xyPM&autoplay=1')">
+          <div class="thumb-wrapper">
+            <img src="https://img.youtube.com/vi/GaSR_I290Kw/hqdefault.jpg" alt="Lean Six Sigma Videos">
+            <span class="play-icon">&#9654;</span>
+            <span class="media-badge">Playlist</span>
+          </div>
+          <div class="card-meta">
+            <h3>Lean Six Sigma Instructional Series</h3>
+            <p>Comprehensive instructional videos covering LSS principles.</p>
+          </div>
         </div>
 
-        <div class="gallery-item">
-          <img src="young.jpg" alt="Childhood photo of Tony in Charro suit">
-          <p class="gallery-caption">Early Community & Cultural Ties (Charro Suit)</p>
+        <!-- Video 1 -->
+        <div class="gallery-card" onclick="openLightbox('video', 'https://www.youtube.com/embed/NCqN9OGGvEU?autoplay=1')">
+          <div class="thumb-wrapper">
+            <img src="https://img.youtube.com/vi/NCqN9OGGvEU/hqdefault.jpg" alt="AI Terminology">
+            <span class="play-icon">&#9654;</span>
+            <span class="media-badge">Video</span>
+          </div>
+          <div class="card-meta">
+            <h3>AI Terminology Breakdown</h3>
+            <p>Models, Memories, Instructions, and Prompts explained.</p>
+          </div>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="gallery-card" onclick="openLightbox('video', 'https://www.youtube.com/embed/GaSR_I290Kw?autoplay=1')">
+          <div class="thumb-wrapper">
+            <img src="https://img.youtube.com/vi/GaSR_I290Kw/hqdefault.jpg" alt="Process Mapping">
+            <span class="play-icon">&#9654;</span>
+            <span class="media-badge">Video</span>
+          </div>
+          <div class="card-meta">
+            <h3>Process Mapping & Facilitation</h3>
+            <p>Where process mapping overlaps with dialogue facilitation tactics.</p>
+          </div>
+        </div>
+
+        <!-- Video 3 -->
+        <div class="gallery-card" onclick="openLightbox('video', 'https://www.youtube.com/embed/H-kvhv9_PGA?autoplay=1')">
+          <div class="thumb-wrapper">
+            <img src="https://img.youtube.com/vi/H-kvhv9_PGA/hqdefault.jpg" alt="Applying AI in Lean">
+            <span class="play-icon">&#9654;</span>
+            <span class="media-badge">Video</span>
+          </div>
+          <div class="card-meta">
+            <h3>Applying AI as a Lean Practitioner</h3>
+            <p>Practical strategies for integrating AI tools into lean workflows.</p>
+          </div>
+        </div>
+
+        <!-- Video 4 -->
+        <div class="gallery-card" onclick="openLightbox('video', 'https://www.youtube.com/embed/6vhXVj5qb1M?autoplay=1')">
+          <div class="thumb-wrapper">
+            <img src="https://img.youtube.com/vi/6vhXVj5qb1M/hqdefault.jpg" alt="Engagement Without Funding">
+            <span class="play-icon">&#9654;</span>
+            <span class="media-badge">Video</span>
+          </div>
+          <div class="card-meta">
+            <h3>Boosting Engagement Without Funding</h3>
+            <p>Creative approaches to drive engagement on limited budgets.</p>
+          </div>
+        </div>
+
+        <!-- Video 5 -->
+        <div class="gallery-card" onclick="openLightbox('video', 'https://www.youtube.com/embed/as71Th9VNOA?autoplay=1')">
+          <div class="thumb-wrapper">
+            <img src="https://img.youtube.com/vi/as71Th9VNOA/hqdefault.jpg" alt="PowerPoint Engagement">
+            <span class="play-icon">&#9654;</span>
+            <span class="media-badge">Video</span>
+          </div>
+          <div class="card-meta">
+            <h3>Engaging PowerPoint Presentations</h3>
+            <p>Mini-presentation on tactics to keep audiences engaged.</p>
+          </div>
+        </div>
+
+        <!-- Photo Item 1 -->
+        <div class="gallery-card" onclick="openLightbox('image', 'presenting.jpg')">
+          <div class="thumb-wrapper">
+            <img src="presenting.jpg" alt="Tony Nava presenting wide shot">
+            <span class="media-badge">Photo</span>
+          </div>
+          <div class="card-meta">
+            <h3>Keynote Presentation</h3>
+            <p>Facilitating live sessions with leadership groups.</p>
+          </div>
+        </div>
+
+        <!-- Photo Item 2 -->
+        <div class="gallery-card" onclick="openLightbox('image', 'scouting.JPG')">
+          <div class="thumb-wrapper">
+            <img src="scouting.JPG" alt="Tony Nava in Scout Leader uniform">
+            <span class="media-badge">Photo</span>
+          </div>
+          <div class="card-meta">
+            <h3>Youth Volunteering</h3>
+            <p>Serving as local Scout Leader & mentor.</p>
+          </div>
+        </div>
+
+        <!-- Photo Item 3 -->
+        <div class="gallery-card" onclick="openLightbox('image', 'young.jpg')">
+          <div class="thumb-wrapper">
+            <img src="young.jpg" alt="Childhood photo in Charro suit">
+            <span class="media-badge">Photo</span>
+          </div>
+          <div class="card-meta">
+            <h3>Cultural Heritage</h3>
+            <p>Early community and cultural roots.</p>
+          </div>
         </div>
 
       </div>
@@ -391,11 +614,50 @@
 
   </main>
 
+  <!-- Lightbox Popup Modal -->
+  <div id="lightbox" class="lightbox-modal" onclick="closeLightbox(event)">
+    <div class="lightbox-content">
+      <span class="close-modal" onclick="forceCloseLightbox()">&times;</span>
+      <div id="lightbox-body" class="lightbox-body"></div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer>
     <p>&copy; Antonio Nava.</p>
     <p>Contact: <a href="mailto:nava.antonio5533@yahoo.com">nava.antonio5533@yahoo.com</a> | <a href="https://www.linkedin.com/in/tony-nava/" target="_blank" rel="noopener">LinkedIn Profile</a></p>
   </footer>
+
+  <!-- Lightbox Controller Script -->
+  <script>
+    function openLightbox(type, src) {
+      const modal = document.getElementById('lightbox');
+      const body = document.getElementById('lightbox-body');
+      
+      if (type === 'video') {
+        body.innerHTML = `<iframe src="${src}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+      } else if (type === 'image') {
+        body.innerHTML = `<img src="${src}" alt="Expanded View">`;
+      }
+      
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Stop background scrolling
+    }
+
+    function forceCloseLightbox() {
+      const modal = document.getElementById('lightbox');
+      const body = document.getElementById('lightbox-body');
+      modal.classList.remove('active');
+      body.innerHTML = ''; // Stop video audio playing in background
+      document.body.style.overflow = 'auto';
+    }
+
+    function closeLightbox(e) {
+      if (e.target.id === 'lightbox') {
+        forceCloseLightbox();
+      }
+    }
+  </script>
 
 </body>
 </html>
