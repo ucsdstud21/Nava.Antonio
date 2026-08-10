@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antonio "Tony" Nava | Portfolio</title>
+  <style>
+    :root {
+      --primary: #00629B; /* UCSD Navy Blue inspired */
+      --secondary: #182B49;
+      --accent: #FFCD00;  /* UCSD Gold inspired */
+      --bg: #F8F9FA;
+      --card-bg: #FFFFFF;
+      --text: #212529;
+      --text-muted: #6C757D;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--bg);
+    }
+
+    /* Header & Navigation */
+    header {
+      background-color: var(--secondary);
+      color: #fff;
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+
+    .header-content {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .headshot-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--accent);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      background-color: #2a3f61;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+    }
+
+    header p.subtitle {
+      font-size: 1.2rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .cta-group {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.4rem;
+      background-color: var(--accent);
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: #e6b800;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: #ffffff;
+      border: 2px solid #ffffff;
+    }
+
+    .btn-outline:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    /* Sections */
+    section {
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 8px;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.06);
+    }
+
+    h2 {
+      font-size: 1.7rem;
+      color: var(--primary);
+      border-bottom: 3px solid var(--bg);
+      padding-bottom: 0.7rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Impact Cards */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .metric-card {
+      background-color: var(--bg);
+      padding: 1.8rem;
+      border-left: 5px solid var(--primary);
+      border-radius: 4px;
+    }
+
+    .metric-number {
+      font-size: 2.3rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    .metric-label {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    /* Community Highlight */
+    .highlight-container {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      margin-top: 1.5rem;
+      border-top: 3px solid var(--bg);
+      padding-top: 1.5rem;
+    }
+
+    @media (max-width: 650px) {
+      .highlight-container {
+        flex-direction: column;
+      }
+    }
+
+    .highlight-photo {
+      flex: 0 0 40%;
+      width: 100%;
+    }
+
+    .highlight-photo img {
+      width: 100%;
+      max-height: 250px;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      background-color: #eee;
+    }
+
+    .highlight-text {
+      flex: 1;
+    }
+
+    .highlight-text h3 {
+      color: var(--primary);
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Tag pills */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.2rem;
+    }
+
+    .tag {
+      background-color: var(--bg);
+      color: var(--secondary);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    /* Certifications List Styling */
+    .cert-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .cert-list li {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--bg);
+    }
+
+    .cert-list li:last-child {
+      border-bottom: none;
+    }
+
+    /* Horizontal Scroll Gallery */
+    .scroll-gallery {
+      display: flex;
+      gap: 1.2rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 1.2rem;
+    }
+
+    .gallery-item {
+      scroll-snap-align: start;
+      flex: 0 0 300px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      margin-bottom: 0.5rem;
+      background-color: #eee;
+    }
+
+    .gallery-caption {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      background-color: var(--card-bg);
+      margin-top: 2.5rem;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <img src="tony_headshot.png" alt="Antonio Tony Nava" class="headshot-img">
+      <div>
+        <h1>Antonio "Tony" Nava</h1>
+        <p class="subtitle">Programs Director at OSI | Lean Six Sigma Black Belt & PMP</p>
+      </div>
+      <div class="cta-group">
+        <a href="mailto:nava.antonio5533@yahoo.com" class="btn">Email Me</a>
+        <a href="https://www.linkedin.com/in/tony-nava/" target="_blank" rel="noopener" class="btn btn-outline">Connect on LinkedIn</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Content Container -->
+  <main class="container">
+
+    <!-- Key Impact Metrics -->
+    <section>
+      <h2>Training & Institutional Leadership</h2>
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-number">2,700+</div>
+          <div class="metric-label">Staff trained as Lead Instructor for Lean Six Sigma Yellow Belt Certification at UCSD</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-number">800+</div>
+          <div class="metric-label">Staff trained in process mapping as Promapp Administrator</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-number">2021</div>
+          <div class="metric-label">UC San Diego Exemplary Staff Employee of the Year</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Professional Focus -->
+    <section>
+      <h2>Core Expertise & AI Integration</h2>
+      <p>I regularly facilitate cross-departmental and cross-institutional projects, leverage Prosci Change Management, and apply Lean Six Sigma (LSS) methodologies to support change initiatives campus-wide.</p>
+      <br>
+      <p>After developing an introductory <strong>AI Module</strong> available to all UCSD staff, my current focus centers on <strong>blending Lean Six Sigma and AI</strong> to ensure teams reach optimal benefits from each tool set.</p>
+      
+      <div class="tags">
+        <span class="tag">Lean Six Sigma Black Belt</span>
+        <span class="tag">PMP Certified</span>
+        <span class="tag">Prosci Change Management</span>
+        <span class="tag">Nintex Process Mapping</span>
+        <span class="tag">AI & LSS Integration</span>
+        <span class="tag">Prompt Engineering</span>
+        <span class="tag">AI Agent Building</span>
+      </div>
+    </section>
+
+    <!-- Photo Highlights -->
+    <section>
+      <h2>Photo Highlights</h2>
+      <p style="margin-bottom: 1.2rem; color: var(--text-muted); font-size: 0.95rem;">Scroll horizontally to view photos:</p>
+      <div class="scroll-gallery">
+        
+        <div class="gallery-item">
+          <img src="tony_presenting_wide.png" alt="Tony Nava presentation wide shot">
+          <p class="gallery-caption">Presenting Keynote (Wide View)</p>
+        </div>
+
+        <div class="gallery-item">
+          <img src="tony_scout_leader.png" alt="Tony Nava in Scout Leader uniform">
+          <p class="gallery-caption">Youth Volunteering: Scout Leader</p>
+        </div>
+
+        <div class="gallery-item">
+          <img src="tony_child_charro.png" alt="Childhood photo of Tony in Charro suit">
+          <p class="gallery-caption">Early Community & Cultural Ties (Charro Suit)</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Community AI Education -->
+    <section>
+      <h2>Community AI Workshops & Outreach</h2>
+      <p>Passionate about making technology accessible, I deliver complimentary presentations at local public libraries to demystify artificial intelligence for the general public.</p>
+      
+      <div class="highlight-container">
+        <div class="highlight-photo">
+          <img src="tony_presenting_pointer.png" alt="Tony presenting AI concepts">
+        </div>
+        <div class="highlight-text">
+          <h3>Public Library AI Sessions</h3>
+          <p>These free sessions focus on practical introductory AI skills, covering foundational concepts, effective <strong>prompt engineering</strong>, and basic <strong>AI agent building</strong> to help community members leverage AI tools in their daily lives.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Certifications -->
+    <section>
+      <h2>Education & Certifications</h2>
+      <ul class="cert-list">
+        <li><strong>Lean Six Sigma Black Belt</strong> – UC San Diego Extension</li>
+        <li><strong>Prosci Change Management Certified</strong></li>
+        <li><strong>PMP Certified</strong> – Coursera</li>
+        <li><strong>Process Mapping Certified</strong> – Nintex (Promapp)</li>
+        <li><strong>Bachelor of Arts in Theater Arts</strong> – UC San Diego</li>
+      </ul>
+    </section>
+
+    <!-- Personal & Community Involvement -->
+    <section>
+      <h2>Beyond the Office</h2>
+      <p>Outside of work, I spend my time volunteering with youth organizations and cycling. When possible, I donate my ponytail to <strong>Locks of Love</strong>, a 501(c)(3) nonprofit that supports a sense of self and normalcy in children suffering from hair loss.</p>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; Antonio Nava.</p>
+    <p>Contact: <a href="mailto:nava.antonio5533@yahoo.com">nava.antonio5533@yahoo.com</a> | <a href="https://www.linkedin.com/in/tony-nava/" target="_blank" rel="noopener">LinkedIn Profile</a></p>
+  </footer>
+
+</body>
+</html>
