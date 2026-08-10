@@ -330,13 +330,16 @@
       width: 100%;
     }
 
+    /* Updated Framing Style: Prevents cropping and fits entire image */
     .highlight-photo img {
       width: 100%;
-      max-height: 280px;
+      max-height: 300px;
       border-radius: 8px;
-      object-fit: cover;
-      background-color: #f1f5f9;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      object-fit: contain; /* Shows full image without clipping */
+      background-color: var(--bg); /* Matte background framing */
+      border: 1px solid #e2e8f0;
+      padding: 6px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
     }
 
     .highlight-caption {
@@ -510,7 +513,7 @@
         <!-- Video 3 -->
         <div class="gallery-card" onclick="openLightbox('video', 'https://www.youtube.com/embed/H-kvhv9_PGA?autoplay=1')">
           <div class="thumb-wrapper">
-            <img src="https://img.youtube.com/vi/H-kvhv9_PGA/hqdefault.jpg" alt="Applying AI in Lean">
+            <img src="https://img.youtube.com/vi/H-kvhv9_PGA?autoplay=1')">
             <span class="play-icon">&#9654;</span>
             <span class="media-badge">Video</span>
           </div>
